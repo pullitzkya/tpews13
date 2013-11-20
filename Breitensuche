@@ -1,0 +1,24 @@
+package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
+
+public class Breitensuche implements SearchStrategy {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List search() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List getPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
