@@ -1,0 +1,52 @@
+package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
+
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Iterator;
+
+public class ListImpl<T> implements List<Object> {
+	
+	private LinkedList<Object> list = new LinkedList<Object>();
+		
+	public ListImpl(){
+		this.list = new LinkedList<Object>(); 
+	}
+	
+	public boolean contains(Object e){
+		return this.list.contains(e);
+	}
+	
+	
+	public boolean add(Object e){
+		this.list.add(e);
+		return true;
+	}
+	
+
+	public void addFirst(Object e){
+		this.list.addFirst(e);
+	}
+	
+	public Object peekFirst(){
+		return this.list.peekFirst();
+	};
+
+	public boolean isEmpty(){
+		return this.list.isEmpty();
+	};
+
+	public Object pollFirst(){
+		return this.list.pollFirst();
+	};
+	
+	public void clear(){
+		this.list.clear();
+	}
+	
+	@Override
+	public Iterator<Object> iterator() {
+		return list.iterator();
+	}
+
+
+}
