@@ -1,0 +1,21 @@
+package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
+
+public class Test {
+	
+	public static void main(String[] args){
+				
+		Node x = new Node("x", 100);
+		Node y = new Node("y", 63);
+		Node z = new Node("z", 90);
+		
+		x.addChild(y);
+		x.addChild(z);
+		
+		ListImpl l = new ListImpl();
+		l.addFirst(y);
+		l.clear();
+		System.out.println(l.contains(y));
+		
+	}
+	
+}
