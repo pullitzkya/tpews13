@@ -1,0 +1,31 @@
+package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
+
+public class Node<T> {
+
+	private String name;
+	private T value;
+	private ListImpl<T> children;
+	
+	public Node(String n, T w){
+		this.name = n;
+		this.value = w;
+		this.children = new ListImpl<T>();
+	}
+	
+	public void addChild(T child){
+		this.children.add(child);
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public ListImpl<T> getChildren(){
+		return this.children;
+	}
+	
+	public T getValue(){
+		return this.value;
+	}
+
+}
