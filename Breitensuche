@@ -1,24 +1,45 @@
 package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
 
-public class Breitensuche implements SearchStrategy {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+public class Breitensuche<T> implements SearchStrategy<T> {
+	
+	private NodeList<T> hits = new NodeListImpl<T>();
+	private NodeList<T> visited = new NodeListImpl<T>();
+	
+	public NodeList<T> getPath(){
+		return visited;
 	}
+	
+	public NodeList<T> search(T value, Node<T> start){
+		
+		
+		NodeList<T> queue = new NodeListImpl<T>();
+		
+		
+		queue.addFirst(start);
+		
+		while(!queue.isEmpty()){
+			Node<T> activeNode = queue.pollFirst(); // Knoten aus der Queue rausnehmen
+			
+			visited.add(activeNode); // Knoten in die Besucht liste speichern
+		
+			if(activeNode.getValue() == value){  // falls knoten dem gesuchten wert entspricht, in der hits liste speichern
+				hits.add(activeNode);
+			}
 
-	@Override
-	public List search() {
-		// TODO Auto-generated method stub
-		return null;
+			
+			if(!activeNode.getChildren().isEmpty()){ // checken ob knoten kinder hat und ob diese schon besucht wurden
+				for(Node<T> child : activeNode.getChildren()){
+					if(!visited.contains(child)){
+						queue.add(child);
+					}
+				}
+				
+			}
+			
+		}
+		
+		return hits;
+		
 	}
-
-	@Override
-	public List getPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
