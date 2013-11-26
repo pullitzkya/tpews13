@@ -1,8 +1,9 @@
 package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
 
-public interface SearchStrategy {
+public interface SearchStrategy<T> {
 	
-	public List search();
-	public List getPath();
+	public NodeList<T> search(T value, Node<T> startNode);
+	
+	public NodeList<T> getPath();
 	
 }
