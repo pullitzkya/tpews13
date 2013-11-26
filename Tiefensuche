@@ -1,25 +1,34 @@
 package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
 
-public class Tiefensuche implements SearchStrategy {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+public class Tiefensuche<T> implements SearchStrategy<T> {
+	
+	private NodeList<T> hits = new NodeListImpl<T>();
+	private NodeList<T> visited = new NodeListImpl<T>();
+	
+	public NodeList<T> getPath(){
+		return visited;
 	}
-
-	@Override
-	public List search() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public NodeList<T> search(T value, Node<T> start){
+		NodeList<T> queue = new NodeListImpl<T>();
+		queue.add(start);
+		visited.add(start);
+		
+		if(start.getValue() == value){
+			hits.add(start);
+		}
+		
+		if(!start.getChildren().isEmpty()){
+			for(Node<T> child : start.getChildren()){
+				if(!visited.contains(child)){
+					search(value, child);
+				}
+			}
+		}
+		
+		
+		return hits;
+		
 	}
-
-	@Override
-	public List getPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }
