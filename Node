@@ -4,15 +4,15 @@ public class Node<T> {
 
 	private String name;
 	private T value;
-	private ListImpl<T> children;
+	private NodeList<T> children;
 	
-	public Node(String n, T w){
+	public Node(String n, T v){
 		this.name = n;
-		this.value = w;
-		this.children = new ListImpl<T>();
+		this.value = v;
+		this.children = new NodeListImpl<T>();
 	}
 	
-	public void addChild(T child){
+	public void addChild(Node<T> child){
 		this.children.add(child);
 	}
 	
@@ -20,12 +20,16 @@ public class Node<T> {
 		return this.name;
 	}
 	
-	public ListImpl<T> getChildren(){
+	public NodeList<T> getChildren(){
 		return this.children;
 	}
 	
 	public T getValue(){
 		return this.value;
+	}
+	
+	public String toString(){
+		return this.name;
 	}
 
 }
