@@ -1,6 +1,21 @@
 package de.hs_mannheim.ws13.tpe_ib_15_uebung3;
 
-public class Graph {
+public class Graph<T> {
 	
+	public Node<T> rootNode;
+	
+	public Graph(Node<T> root){
+		this.rootNode = root;
+	}
+	
+	public NodeList<T> search(T value, Node<T> startNode, SearchStrategy<T> ss){
+		return ss.search(value, startNode);
+	}
+	
+	/*
+	public NodeList<T> copyInto(NodeList<T> nl){
+		
+	}
+	*/
 	
 }
